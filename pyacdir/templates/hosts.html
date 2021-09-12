@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Хосты</h1>
+
+    {% if hosts %}
+      {% for host in hosts %}
+      <table class="table">
+          <tr>
+              <th>Имя</th>
+              <th>IP</th>
+              <th>Описание</th>
+              <th>Тип</th>
+              <th>Владелец</th>
+              <th>Дата создания</th>
+          </tr>
+          <tr>
+              <td>{{host.name}}</td>
+              <td>{{host.ip}}</td>
+              <td>{{host.description}}</td>
+              <td>{{host.typeHost}}</td>
+              <td>{{host.owner}}</td>
+              <td>{{host.createdDate}}</td>
+          </tr>
+      </table>
+      {% endfor %}
+      <br>
+      <a href="">Создать (beta)</a>
+    {% else %}
+      <p>Хосты не найдены в базе данных. <a href="">Создать</a></p>
+    {% endif %} 
+{% endblock %}

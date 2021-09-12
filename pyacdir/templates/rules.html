@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Политики</h1>
+
+    {% if rules %}
+      {% for rule in rules %}
+      <table class="table">
+          <tr>
+              <th>Название</th>
+              <th>Описание</th>
+              <th>Данные</th>
+          </tr>
+          <tr>
+              <td>{{rule.title}}</td>
+              <td>{{rule.description}}</td>
+              <td>{{rule.data}}</td>
+          </tr>
+      </table>
+      <br>
+      <a href="{% url 'rule_create' %}">Создать</a>
+      {% endfor %}
+    {% else %}
+      <p>Политики не найдены в базе данных. <a href="{% url 'rule_create' %}">Создать</a></p>
+    {% endif %} 
+{% endblock %}

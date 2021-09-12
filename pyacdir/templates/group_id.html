@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Группа {{group.name}}</h1>
+
+    {% if group %}
+      <table class="table">
+          <tr>
+              <th>Имя</th>
+              <th>Разрешения</th>
+          </tr>
+          <tr>
+              <td>{{group.name}}</td>
+              <td><a href="{% url 'rule_detail' group.permissions.pk %}"></a>{{group.permissions.title}}</a></td>
+          </tr>
+      </table>
+    {% else %}
+      <p>Группа не найдена в базе данных. <a href="">Создать (beta)</a></p>
+    {% endif %} 
+{% endblock %}

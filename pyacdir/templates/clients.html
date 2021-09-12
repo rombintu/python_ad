@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Клиенты</h1>
+
+    {% if clients %}
+      {% for client in clients %}
+      <table class="table">
+          <tr>
+              <th>Логин</th>
+              <th>Временный пароль</th>
+              <th>Группы</th>
+              <th>Дата создания</th>
+          </tr>
+          <tr>
+              <td>{{client.login}}</td>
+              <td>{{client.tempPass}}</td>
+              <td><a href="{% url 'group_detail' client.group.pk %}">{{client.group.name}}</a></td>
+              <td>{{client.createdDate}}</td>
+          </tr>
+      </table>
+      {% endfor %}
+      <br>
+      <a href="">Создать (beta)</a>
+    {% else %}
+      <p>Клиенты не найдены в базе данных. <a href="">Создать (beta)</a></p>
+    {% endif %} 
+{% endblock %}

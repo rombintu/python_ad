@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Группы</h1>
+
+    {% if groups %}
+      {% for group in groups %}
+      <table class="table">
+          <tr>
+              <th>Имя</th>
+              <th>Разрешения</th>
+          </tr>
+          <tr>
+              <td>{{group.name}}</td>
+              <td><a href="{% url 'group_detail' group.permissions.pk %}">{{group.permissions.title}}</a></td>
+          </tr>
+      </table>
+      {% endfor %}
+      <br>
+      <a href="">Создать (beta)</a>
+    {% else %}
+      <p>Группы не найдены в базе данных. <a href="">Создать (beta)</a></p>
+    {% endif %} 
+{% endblock %}

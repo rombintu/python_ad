@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Python Active Directory</h1>
+
+  <p>Управляй своей мечтой</p>
+
+<h2>Обзор</h2>
+
+  <ul>
+    <li><strong>Клиенты:</strong> {{ clientCount }}</li>
+    <li><strong>Группы:</strong> {{ groupCount }}</li>
+    <li><strong>Правила:</strong> {{ ruleCount }}</li>
+    <li><strong>Хосты:</strong> {{ hostCount }}</li>
+  </ul>
+
+{% endblock %}
